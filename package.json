@@ -1,0 +1,31 @@
+{
+  "name": "wow.ts",
+  "version": "0.0.1",
+  "main": ".build/index.js",
+  "author": "Aleksei Zabrodskii <elmigranto@protonmail.com> (https://elmigranto.me/)",
+  "license": "MIT",
+  "engines": {
+    "node": "^12.1.0",
+    "yarn": "^1.15.2"
+  },
+  "scripts": {
+    "start": "node .build/",
+    "startw": "nodemon --delay 0.2 --watch .build/ --exec yarn start",
+    "build": "tsc --project tsconfig.json",
+    "buildw": "yarn clean && yarn build --watch",
+    "clean": "find .build -not -name '.keep' -depth 1 -print0 | xargs -0 rm -r",
+    "rebuild": "yarn clean && yarn build",
+    "ci": "yarn install --frozen-lockfile && yarn check --integrity && yarn check --verify-tree",
+    "lint": "eslint --config .eslintrc.yaml src/**/*.ts"
+  },
+  "dependencies": {
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@fine-js/eslint-config": "^0.0.21",
+    "@types/node": "^12.0.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "^5.16.0",
+    "nodemon": "^1.19.0"
+  }
+}

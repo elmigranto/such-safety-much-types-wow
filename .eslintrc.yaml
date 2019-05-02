@@ -1,0 +1,18 @@
+root: true
+
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2019
+  sourceType: module
+  ecmaFeatures:
+    globalReturn: true
+    impliedStrict: true
+    jsx: false
+    project: ./tsconfig.json
+    tsconfigRootDir: ./
+
+extends:
+  - '@fine-js/eslint-config'
+
+env:
+  node: true
